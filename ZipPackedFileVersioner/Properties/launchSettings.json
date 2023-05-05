@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ZipPackedFileVersioner": {
+      "commandName": "Project",
+      "commandLineArgs": "\"F:\\Games\\jk3 mods\\_allversions\\releases\" \"psf_overrides.txt\" pk3"
+    }
+  }
+}
