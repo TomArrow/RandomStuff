@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ZipRecursiveSearch": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\Tommy\\AppData\\Local\\JKWatcher\\pakDownloads\" \".+\\.wnt\""
+    }
+  }
+}
