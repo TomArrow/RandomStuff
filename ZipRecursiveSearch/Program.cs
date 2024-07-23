@@ -39,7 +39,7 @@ class Program
             }
         }
         Console.WriteLine(sb.ToString());
-        File.WriteAllText($"foundVersions.txt", sb.ToString());
+        File.AppendAllText($"foundVersions.txt", sb.ToString());
 
 
         Console.ReadKey();
@@ -143,14 +143,14 @@ class Program
                     indexHere = versions[entryNameLower].Count;
                     versions[entryNameLower].Add(version);
                     versionsWhere[entryNameLower][indexHere] = new List<string>();
-                    if(indexHere == 0)
+                    string targetFileName = entryNameLower;
+                    if (indexHere != 0)
                     {
-                        File.WriteAllBytes(entryNameLower,version);
+                        targetFileName = $"{Path.GetFileNameWithoutExtension(entryNameLower)}_version{(indexHere + 1)}{Path.GetExtension(entryNameLower)}";
                     }
-                    else
-                    {
-                        File.WriteAllBytes($"{Path.GetFileNameWithoutExtension(entryNameLower)}_version{(indexHere+1)}{Path.GetExtension(entryNameLower)}", version);
-                    }
+                    File.WriteAllBytes(targetFileName, version);
+                    File.SetLastWriteTime(targetFileName, entry.LastWriteTime.DateTime);
+                    
                 }
                 versionsWhere[entryNameLower][indexHere].Add(path);
             }
