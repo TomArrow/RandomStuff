@@ -9,6 +9,12 @@ class Program
 {
     static void Main(string[] args)
     {
+        if(args.Length < 3)
+        {
+            Console.WriteLine("Arguments: main folder path, search file, sub zip extension");
+            return;
+        }
+
         string mainFolderPath = args[0];
         string searchFile = args[1];
         string subZipExtension = args[2];
